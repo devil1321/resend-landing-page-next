@@ -40,12 +40,12 @@ const Details = () => {
       handleMakeLetters(paragraphRef_2)
       handleAnimate(headingRef,1)
       handleAnimate(paragraphRef_1,2)
-      handleAnimate(paragraphRef_1,2)
+      handleAnimate(paragraphRef_2,2)
     }
   },[isClient])
 
   return (
-    <div className='hero-details md:w-1/2 pl-[100px]'>
+    <div className='hero-details md:w-1/2 md:h-screen md:pl-[100px]'>
       <div className='hero-details-button-wrapper my-2 p-[2px] h-fit w-fit rounded-full bg-gradient-to-r from-red-500 to-green-500'>
         <button className="px-2 py-0 bg-gray-900 rounded-full">Introducing Marketing Emails</button>
       </div>
