@@ -14,8 +14,8 @@ const Details = () => {
     const stringArr = ref.current.textContent?.split("") as string[]
     ref.current.innerHTML = ''
       stringArr.forEach((l:string)=>{
-      if(typeof window !== undefined){
-        if(typeof document !== undefined){
+      if(typeof window !== 'undefined'){
+        if(typeof document !== 'undefined'){
           const span = document.createElement('span')
           span.textContent = l
           ref.current.appendChild(span)
