@@ -1,8 +1,10 @@
 'use client'
-import React, { MutableRefObject, useEffect, useRef } from 'react'
+import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 
 const Details = () => {
+
+  const [isClient,setIsClient] = useState<boolean>(false)
 
   const headingRef = useRef() as MutableRefObject<HTMLHeadingElement>
   const paragraphRef_1 = useRef() as MutableRefObject<HTMLParagraphElement>
@@ -13,9 +15,11 @@ const Details = () => {
     ref.current.innerHTML = ''
       stringArr.forEach((l:string)=>{
       if(typeof window !== undefined){
-        const span = document.createElement('span')
-        span.textContent = l
-        ref.current.appendChild(span)
+        if(typeof document !== undefined){
+          const span = document.createElement('span')
+          span.textContent = l
+          ref.current.appendChild(span)
+        }
       }
     })
   }
@@ -29,13 +33,16 @@ const Details = () => {
   }
 
   useEffect(()=>{
-    handleMakeLetters(headingRef)
-    handleMakeLetters(paragraphRef_1)
-    handleMakeLetters(paragraphRef_2)
-    handleAnimate(headingRef,1)
-    handleAnimate(paragraphRef_1,2)
-    handleAnimate(paragraphRef_1,2)
-  },[])
+    setIsClient(true)
+    if(isClient){
+      handleMakeLetters(headingRef)
+      handleMakeLetters(paragraphRef_1)
+      handleMakeLetters(paragraphRef_2)
+      handleAnimate(headingRef,1)
+      handleAnimate(paragraphRef_1,2)
+      handleAnimate(paragraphRef_1,2)
+    }
+  },[isClient])
 
   return (
     <div className='hero-details md:w-1/2 pl-[100px]'>
