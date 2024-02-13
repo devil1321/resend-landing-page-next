@@ -1,7 +1,6 @@
 'use client'
 import { MutableRefObject, useEffect, useRef, useState } from 'react';
 import * as THREE from 'three'
-import { Vector3 } from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 export default function Cube() {

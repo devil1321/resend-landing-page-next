@@ -15,9 +15,11 @@ const Details = () => {
     ref.current.innerHTML = ''
       stringArr.forEach((l:string)=>{
       if(isClient){
-        // const span = document.createElement('span')
-        // span.textContent = l
-        // ref.current.appendChild(span)
+        if(typeof document !== 'undefined'){
+          const span = document.createElement('span')
+          span.textContent = l
+          ref.current.appendChild(span)
+        }
       }
     })
   }
