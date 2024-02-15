@@ -5,9 +5,9 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 interface TitleFeatureProps{
-  img:string;
+  img?:string;
   title:string;
-  text:string;
+  text?:string;
   isButtons?:boolean;
 }
 
@@ -27,12 +27,15 @@ const TitleFeature:React.FC<TitleFeatureProps> = ({img,title,text,isButtons}) =>
         words.forEach((w:string)=>{
           const place = document.createElement('div') as HTMLDivElement
           place.classList.add('flex')
-          place.classList.add('text-orange-500')
           place.classList.add('mr-[5px]')
           w.split('').forEach((l:string)=>{
             const span = document.createElement('span')
             span.classList.add('block')
-            span.classList.add('text-5xl')
+            if(window.innerWidth > 767){
+              span.classList.add('text-5xl')
+            }else{
+              span.classList.add('text-3xl')
+            }
             span.classList.add('font-bold')
             span.textContent = l
             span.addEventListener('mouseenter',()=>{
@@ -62,9 +65,9 @@ const TitleFeature:React.FC<TitleFeatureProps> = ({img,title,text,isButtons}) =>
 
   return (
     <div className='title-feature flex flex-col items-center justify-start text-center'>
-       <Image src={img} alt="feature-logo" width={100} height={100} />
+       {img && <Image src={img} alt="feature-logo" width={100} height={100} />}
        <h2 ref={headingRef} className="text-5xl mt-2 mb-5 font-bold flex">{title}</h2>
-       <p className={`md:w-2/5 mx-auto ${!isButtons && 'mb-12'}`}>{text}</p>
+       {text && <p className={`md:w-2/5 mx-auto ${!isButtons && 'mb-12'}`}>{text}</p>}
        {isButtons &&
          <div className='buttons flex my-12'>
           <button className='hover:opacity-70 rounded-full mx-1 px-6 py-2 bg-white text-black font-bold'>Get Started</button>

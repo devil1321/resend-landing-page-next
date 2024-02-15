@@ -8,6 +8,7 @@ import { CeoComponents } from "./components/ceo";
 import { ControlComponents } from "./components/control";
 import { useEffect } from "react";
 import { ExpectationsComponents } from "./components/expectations";
+import { GlobalComponents } from "./components/global";
 
 
 const Home = () => {
@@ -22,6 +23,8 @@ const Home = () => {
       <CeoComponents.Ceo />
       <ControlComponents.Control />
       <ExpectationsComponents.Expectations />
+      <GlobalComponents.TitleFeature title="Email reimagined available today" text="" isButtons={true} />
+      <GlobalComponents.Footer />
     </main>
   );
 }
