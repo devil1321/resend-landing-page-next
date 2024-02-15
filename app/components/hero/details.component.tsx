@@ -26,6 +26,16 @@ const Details = () => {
             span.classList.add("block")
             span.classList.add("mr-[1px]")
             span.textContent = l
+            span.addEventListener('mouseenter',()=>{
+              span.classList.add('animate__animated') 
+              span.classList.add('animate__rubberBand')
+              span.classList.add('animate__fast')
+            })
+            span.addEventListener('mouseout',()=>{
+              span.classList.remove('animate__animated') 
+              span.classList.remove('animate__rubberBand')
+              span.classList.remove('animate__fast')
+            })
             place.appendChild(span)
           })
           ref.current.appendChild(place)
