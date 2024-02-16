@@ -10,7 +10,7 @@ const Hero = () => {
 
   return (
     <div className="hero-wrapper h-screen relative">
-      <div className='md:flex md:justify-between md:items-center'>
+      <div className='lg:flex lg:justify-between lg:items-center'>
         <Details />
         <DynamicCube />
       </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import Icon from './icon.compoent'
 const Icons = () => {
   return (
-    <div className='flex flex-wrap md:flex-nowrap justify-center items-center'>
+    <div className='flex flex-wrap lg:flex-nowrap justify-center items-center'>
       <Icon img="/assets/node-js.png" title="Node.js" />
       <Icon img="/assets/thunder.png" title="Serverless" />
       <Icon img="/assets/ruby.png" title="Ruby" />

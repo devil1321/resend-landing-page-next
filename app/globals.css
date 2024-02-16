@@ -3,11 +3,28 @@
 @tailwind utilities;
 
 @layer base {
+    html{
+        @apply block mx-auto;
+    }
     span{
         cursor: pointer;
     }
     .container {
         @apply text-slate-300 relative left-0 top-0;
+    }
+    .nav-menu{
+        border: 0px;
+        max-height: 0px;
+        transition: all 1s ease-in-out;
+    }
+    .nav-menu.--open{
+        border-width: 1px;
+        max-height: 999px;
+    }
+    @media (min-width:1024px){
+        .nav-menu{
+            max-height: max-content;
+        }
     }
     .hero-details-button-wrapper{
         position: relative;

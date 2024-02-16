@@ -15,6 +15,8 @@ const TitleFeature:React.FC<TitleFeatureProps> = ({img,title,text,isButtons}) =>
 
   const [isLoad,setIsLoad] = useState<boolean>(false)
   const [isSet,setIsSet] = useState<boolean>(false)
+  const mainRef = useRef() as MutableRefObject<HTMLDivElement>
+  const imageRef = useRef() as MutableRefObject<HTMLImageElement>
   const headingRef = useRef() as MutableRefObject<HTMLHeadingElement>
 
   const handleMakeLetters = () =>{
@@ -55,17 +57,50 @@ const TitleFeature:React.FC<TitleFeatureProps> = ({img,title,text,isButtons}) =>
       }
     }    
   }
+
+  const handleAnimate = () =>{
+    gsap.registerPlugin(ScrollTrigger)
+    const tl = gsap.timeline()
+    if(img){
+      tl.fromTo(imageRef.current,{ y:-100,opacity:0 },{
+        y:0,
+        opacity:1,
+        scrollTrigger:{
+          trigger:mainRef.current,
+        start:'-=500px',
+        end:'-=400px',
+        scrub:3
+      }
+    })
+    tl.fromTo(headingRef.current.querySelectorAll('span'),{ y:-100,opacity:0 },{
+      y:0,
+      opacity:1,
+      stagger:1.5,
+      scrollTrigger:{
+        trigger:mainRef.current,
+        start:'-=450px',
+        end:'-=400px',
+        scrub:5
+        }
+      })
+    }
+  }
+
+
   useEffect(()=>{
-    if(isLoad){
+    if(isLoad && !isSet){
       handleMakeLetters()    
       setIsSet(true)
     }
+    if(isSet){
+      handleAnimate()
+    }
     setIsLoad(true)
-  },[isLoad])
+  },[isLoad,isSet])
 
   return (
-    <div className='title-feature flex flex-col items-center justify-start text-center'>
-       {img && <Image src={img} alt="feature-logo" width={100} height={100} />}
+    <div ref={mainRef} className='title-feature flex flex-col items-center justify-start text-center'>
+       {img && <Image ref={imageRef} className="title-feature-img" src={img} alt="feature-logo" width={100} height={100} />}
        <h2 ref={headingRef} className="text-5xl mt-2 mb-5 font-bold flex">{title}</h2>
        {text && <p className={`md:w-2/5 mx-auto ${!isButtons && 'mb-12'}`}>{text}</p>}
        {isButtons &&

@@ -150,7 +150,7 @@ export default function Cube() {
       onMouseDown={(e)=>handleGrab(e)} 
       onMouseMove={(e)=>handleGrabMove(e)}
       onMouseUp={(e)=>handlePut(e)} 
-      className='hero-rubic-cube h-[400px] md:w-1/2 md:h-screen' 
+      className='hero-rubic-cube h-[400px] lg:w-1/2 lg:h-screen' 
       ref={cubeRef}
       ></div>
   );

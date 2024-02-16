@@ -54,9 +54,9 @@ const Details = () => {
   const handleAnimateSM = () =>{
     const tl = gsap.timeline()
     gsap.to('.hero-details-button-wrapper',{ left:0,opacity:1,duration:1,force3D:true})
-    tl.fromTo('.hero-details-h > div > span',{ x:-500},{x:0,stagger:0.1,force3D:true})
-    tl.fromTo('.hero-details-p1 > div > span',{ x:-500},{x:0,stagger:0.1,force3D:true})
-    tl.fromTo('.hero-details-p2 > div > span',{ x:-500},{x:0,stagger:0.1,force3D:true})
+    tl.fromTo('.hero-details-h > div > span',{ x:-800},{x:0,stagger:0.1,force3D:true})
+    tl.fromTo('.hero-details-p1 > div > span',{ x:-800},{x:0,stagger:0.1,force3D:true})
+    tl.fromTo('.hero-details-p2 > div > span',{ x:-800},{x:0,stagger:0.1,force3D:true})
     tl.to('.hero-details-button',{ bottom:0,opacity:1,duration:1,delay:10,force3D:true})
   }
 
@@ -85,7 +85,7 @@ const Details = () => {
     }
   },[isLetters])
   return (
-    <div className='hero-details p-5 md:p-0 md:flex md:flex-col md:justify-center md:items-start md:w-1/2 md:h-screen md:pl-[100px]'>
+    <div className='hero-details p-5 md:p-0 md:flex md:flex-col md:justify-center md:items-start lg:w-1/2 lg:h-screen md:pl-[100px]'>
       <div className='hero-details-button-wrapper my-2 p-[2px] h-fit w-fit rounded-full bg-gradient-to-r from-red-500 to-green-500'>
         <button className="px-2 py-0 bg-gray-900 rounded-full">Introducing Marketing Emails</button>
       </div>
